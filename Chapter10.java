@@ -16,18 +16,29 @@ public class Chapter10 {
             e.printStackTrace();
         }
 
+        // try-catch文を記述
+        // ・throwSQLExceptionメソッドを呼び出し
+        // ・SQLExceptionをキャッチして、メッセージとスタックトレースを出力
+        // ・"throwSQLExceptionの呼び出し終了"のメッセージを出力
+
         try {
             Chapter10.throwSQLException();
         } catch (SQLException e) {
             System.out.println("SQLExceptionが発生しました");
+            // printStackTraceでスタックトレースを出力
             e.printStackTrace();
         } finally {
+            // 例外発生しても出力するため、finallyブロックに記述
             System.out.println("throwSQLExceptionの呼び出し終了");
         }
 
 
         System.out.println("mainメソッド終了");
     }
+
+    // validIndexメソッドを作成
+    // ・indexがarrayのサイズの範囲内なら、インデックスの要素を出力
+    // ・サイズの範囲外なら、IllegalArgumentExceptionをスロー
 
 	public static void validIndex(int[] array, int index) {
         if (array.length <= index) {
